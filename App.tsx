@@ -1,20 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import styles from './styless';
+import logo from '../SplashScreen/assets/instaText.png';
 
-export default function App() {
+export default function Login() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image source={logo} style={styles.logo} />
+
+      <TextInput
+        placeholder="Telefone, nome de usuário ou e-mail"
+        style={styles.input}
+        placeholderTextColor="#999"
+      />
+
+      <TextInput
+        placeholder="Senha"
+        secureTextEntry
+        style={styles.input}
+        placeholderTextColor="#999"
+      />
+
+      <TouchableOpacity style={styles.esqSenha}>
+        <Text style={styles.forgot}>Esqueceu a senha?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.loginBtn}>
+        <Text style={styles.loginText}>Entrar</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.or}>OU</Text>
+
+      <TouchableOpacity>
+        <Text style={styles.facebook}>Entrar com o Facebook</Text>
+      </TouchableOpacity>
+
+      <View style={styles.footer}>
+        <Text style={styles.nConta}>Não tem uma conta?</Text>
+        <TouchableOpacity>
+          <Text style={styles.cadConta}> Cadastre-se</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
